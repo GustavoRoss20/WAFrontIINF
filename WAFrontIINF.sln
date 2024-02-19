@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34525.116
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WAFrontIINF", "WAFrontIINF\WAFrontIINF.csproj", "{9B0CF772-A4D4-4DCB-9933-F27E60958E1A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WABackIINF", "WABackIINF\WABackIINF.csproj", "{21118AE1-15CE-467D-A442-17FFFFB0EE89}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9B0CF772-A4D4-4DCB-9933-F27E60958E1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B0CF772-A4D4-4DCB-9933-F27E60958E1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B0CF772-A4D4-4DCB-9933-F27E60958E1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B0CF772-A4D4-4DCB-9933-F27E60958E1A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21118AE1-15CE-467D-A442-17FFFFB0EE89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21118AE1-15CE-467D-A442-17FFFFB0EE89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21118AE1-15CE-467D-A442-17FFFFB0EE89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21118AE1-15CE-467D-A442-17FFFFB0EE89}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A98E9CC-9A44-47D3-BE0B-6A8728BFC6A3}
+	EndGlobalSection
+EndGlobal
