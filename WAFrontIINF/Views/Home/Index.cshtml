@@ -1,4 +1,5 @@
-﻿@{
+﻿@using WAFrontIINF.Utilities;
+@{
     ViewData["Title"] = "Ingiería Informática";
 }
 
@@ -11,8 +12,8 @@
                 <div class="p-3" style="max-width: 900px;">
                     <h5 class="text-white text-uppercase mb-3 animated slideInDown">De las carreras más demandados por la Institución</h5>
                     <h1 class="display-1 text-white mb-md-4 animated zoomIn">Ingeniería Informática</h1>
-                    <a href="<?php echo constant('URL') ?>tecnologica" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Saber más...</a>
-                    <a href="<?php echo constant('URL') ?>contactanos" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contactanos</a>
+                    <a asp-controller="@(NavigationHelpers.transformacionController)" asp-action="Index" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Saber más...</a>
+                    <a asp-controller="@(NavigationHelpers.contactanosController)" asp-action="Index" class="btn btn-outline-light py-md-3 px-md-5 animated slideInRight">Contactanos</a>
                 </div>
             </div>
         </div>
@@ -22,7 +23,7 @@
                 <div class="p-3" style="max-width: 900px;">
                     <h5 class="text-white text-uppercase mb-3 animated slideInDown">Tenemos diversos convenios con muchas empresas</h5>
                     <h1 class="display-1 text-white mb-md-4 animated zoomIn">en toda la República Mexicana</h1>
-                    <a href="<?php echo constant('URL') ?>convenios" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Saber más...</a>
+                    <a asp-controller="@(NavigationHelpers.conveniosController)" asp-action="Index" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Saber más...</a>
                 </div>
             </div>
         </div>

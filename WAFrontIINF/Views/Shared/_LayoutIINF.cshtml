@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using WAFrontIINF.Utilities;
+
+<!DOCTYPE html>
 
 <html lang="es">
 <head>
@@ -27,7 +29,7 @@
     <!-- Customized Bootstrap Stylesheet -->
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Template Stylesheet --> 
+    <!-- Template Stylesheet -->
     <link href="~/css/style.css" rel="stylesheet">
     <link href="~/css/default.css" rel="stylesheet">
 
@@ -38,7 +40,6 @@
         <div class="spinner"></div>
     </div>
     <!-- Spinner End -->
-
     <!-- Topbar Start -->
     <div class="container-fluid bg-dark px-5 d-none d-lg-block">
         <div class="row gx-0">
@@ -71,13 +72,16 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav ms-auto py-0">
-                    <a class="nav-item nav-link @(ViewContext.RouteData.Values["controller"]?.ToString() == "Home" && ViewContext.RouteData.Values["action"]?.ToString() == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">Inicio</a>
+                    <a class="nav-item nav-link @(NavigationHelpers.IsActive(ViewContext,NavigationHelpers.homeController) ? "active" : "")"
+                       asp-area="" asp-controller="@(NavigationHelpers.homeController)" asp-action="Index">Inicio</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle @(ViewContext.RouteData.Values["controller"]?.ToString() == "Conocenos" ? "active" : "")" data-bs-toggle="dropdown">Conocenos</a>
+                        <a href="#" class="nav-link dropdown-toggle @(NavigationHelpers.IsActive(ViewContext, NavigationHelpers.egresadosController) ||
+                            NavigationHelpers.IsActive(ViewContext, NavigationHelpers.docentesController) || NavigationHelpers.IsActive(ViewContext,NavigationHelpers.contactanosController) ? "active" : "")"
+                           data-bs-toggle="dropdown">Conocenos</a>
                         <div class="dropdown-menu m-0">
-                            <a class="dropdown-item " asp-area="" asp-controller="Conocenos" asp-action="Egresados">Egresados</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Conocenos" asp-action="Docentes">Docentes</a>
-                            <a class="dropdown-item" asp-area="" asp-controller="Conocenos" asp-action="Contactanos">Contactanos</a>
+                            <a class="dropdown-item " asp-area="" asp-controller="@(NavigationHelpers.egresadosController)" asp-action="Index">Egresados</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="@(NavigationHelpers.docentesController)" asp-action="Index">Docentes</a>
+                            <a class="dropdown-item" asp-area="" asp-controller="@(NavigationHelpers.contactanosController)" asp-action="Index">Contactanos</a>
                         </div>
                     </div>
                     <div class="nav-item dropdown">
@@ -87,10 +91,14 @@
                             <a href="<?php echo constant('URL')?>siretec" class="dropdown-item">Nodo SIRETEC</a>
                         </div>
                     </div>
-                    <a href="<?php echo constant('URL')?>reticula" class="nav-item nav-link">Reticula</a>
-                    <a href="<?php echo constant('URL')?>convenios" class="nav-item nav-link">Convenios</a>
-                    <a href="<?php echo constant('URL')?>noticias" class="nav-item nav-link">Noticias</a>
-                    <a href="<?php echo constant('URL')?>tecnologica" class="nav-item nav-link">Transformación Tecnológica</a>
+                    <a class="nav-item nav-link @(NavigationHelpers.IsActive(ViewContext,NavigationHelpers.reticulaController) ? "active" : "")"
+                       asp-area="" asp-controller="@(NavigationHelpers.reticulaController)" asp-action="Index">Reticula</a>
+                    <a class="nav-item nav-link @(NavigationHelpers.IsActive(ViewContext,NavigationHelpers.conveniosController) ? "active" : "")"
+                       asp-area="" asp-controller="@(NavigationHelpers.conveniosController)" asp-action="Index">Convenios</a>
+                    <a class="nav-item nav-link @(NavigationHelpers.IsActive(ViewContext,NavigationHelpers.noticiasController) ? "active" : "")"
+                       asp-area="" asp-controller="@(NavigationHelpers.noticiasController)" asp-action="Index">Noticias</a>
+                    <a class="nav-item nav-link @(NavigationHelpers.IsActive(ViewContext,NavigationHelpers.transformacionController) ? "active" : "")"
+                       asp-area="" asp-controller="@(NavigationHelpers.transformacionController)" asp-action="Index">Transformación Tecnológica</a>
                 </div>
             </div>
         </nav>
@@ -145,14 +153,14 @@
                                 <h3 class="text-light mb-0">Enlaces Rápidos</h3>
                             </div>
                             <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Inicio</a>
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Egresados</a>
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Docentes</a>
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Reticula</a>
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Convenios</a>
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Noticias</a>
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Contactanos</a>
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Transformación Tecnológica </a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.homeController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Inicio</a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.egresadosController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Egresados</a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.docentesController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Docentes</a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.reticulaController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Reticula</a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.conveniosController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Convenios</a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.noticiasController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Noticias</a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.contactanosController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Contactanos</a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.transformacionController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Transformación Tecnológica </a>
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-12 pt-0 pt-lg-5 mb-5">
@@ -160,8 +168,8 @@
                                 <h3 class="text-light mb-0">Enlaces Populares</h3>
                             </div>
                             <div class="link-animated d-flex flex-column justify-content-start">
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Transformación Tecnológica </a>
-                                <a class="text-light mb-2" href=""><i class="bi bi-arrow-right text-primary me-2"></i>Convenios</a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.transformacionController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Transformación Tecnológica </a>
+                                <a class="text-light mb-2" asp-controller="@(NavigationHelpers.conveniosController)" asp-action="Index"><i class="bi bi-arrow-right text-primary me-2"></i>Convenios</a>
                             </div>
                         </div>
                     </div>
@@ -198,10 +206,10 @@
     <script src="~/lib/waypoints/waypoints.min.js"></script>
     <script src="~/lib/counterup/counterup.min.js"></script>
     <script src="~/lib/owlcarousel/owl.carousel.min.js"></script>
-    
+
 
     <!-- Template Javascript -->
-    <script src="~/js/main.js"></script>    
+    <script src="~/js/main.js"></script>
 
 
 </body>

@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using WAFrontIINF.Models;
 
-namespace WAFrontIINF.Controllers
+namespace WAFrontIINF.Controllers.Home
 {
     public class HomeController : Controller
     {
