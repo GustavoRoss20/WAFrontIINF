@@ -87,9 +87,8 @@
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Proyectos</a>
                         <div class="dropdown-menu m-0">
-                            <!--correcion de rutas-->
-                            <a asp-controller="@(NavigationHelpers.fabricaController)" asp-action="Index" class="dropdown-item">Fábrica de Software</a>
-                            <a asp-controller="@(NavigationHelpers.NodoController)" asp-action="Index" class="dropdown-item">Nodo SIRETEC</a>
+                            <a href="<?php echo constant('URL')?>fabricaSoftware" class="dropdown-item">Fábrica de Software</a>
+                            <a href="<?php echo constant('URL')?>siretec" class="dropdown-item">Nodo SIRETEC</a>
                         </div>
                     </div>
                     <a class="nav-item nav-link @(NavigationHelpers.IsActive(ViewContext,NavigationHelpers.reticulaController) ? "active" : "")"

@@ -11,10 +11,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Shared\Index.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
     <None Remove="Controllers\NewFile.txt" />
   </ItemGroup>
 
